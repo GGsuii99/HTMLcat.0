@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn HTML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen transition-colors duration-300">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-primary">Learn HTML</h1>
+            <p class="text-lg mt-2">Interactive guide to master HTML basics</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <nav class="md:col-span-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4">Lessons</h2>
+                <ul class="space-y-2">
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200 font-semibold" data-lesson="intro">Introduction to HTML</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="structure">HTML Document Structure</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="elements">HTML Elements</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="attributes">HTML Attributes</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="formatting">Text Formatting</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="links">Links</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="images">Images</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="lists">Lists</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="tables">Tables</button></li>
+                    <li><button class="lesson-btn w-full text-left px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200" data-lesson="forms">Forms</button></li>
+                </ul>
+            </nav>
+
+            <main class="md:col-span-9">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                    <div id="lesson-content">
+                        <!-- Lesson content will be loaded here -->
+                        <h2 class="text-2xl font-bold mb-4">Introduction to HTML</h2>
+                        <p class="mb-4">Welcome to the HTML learning platform! HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page and consists of a series of elements that tell the browser how to display the content.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3">What You'll Learn</h3>
+                        <p class="mb-4">Through this interactive guide, you'll learn everything from basic HTML structure to creating forms, tables, and more. Select a lesson from the menu to begin your HTML journey!</p>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                            <h4 class="font-semibold mb-2">Example: Your First HTML Code</h4>
+                            <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is my first web page.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                        <p class="mb-4">The best way to learn HTML is by practicing. Use the code editor below to experiment with HTML:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                                <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;Edit this code and see the result.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                                <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                            </div>
+                            <div>
+                                <label class="block font-medium mb-2">Result:</label>
+                                <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection and toggle
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Lesson content data
+        const lessonContent = {
+            intro: `
+                <h2 class="text-2xl font-bold mb-4">Introduction to HTML</h2>
+                <p class="mb-4">Welcome to the HTML learning platform! HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page and consists of a series of elements that tell the browser how to display the content.</p>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">What You'll Learn</h3>
+                <p class="mb-4">Through this interactive guide, you'll learn everything from basic HTML structure to creating forms, tables, and more. Select a lesson from the menu to begin your HTML journey!</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Example: Your First HTML Code</h4>
+                    <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is my first web page.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <p class="mb-4">The best way to learn HTML is by practicing. Use the code editor below to experiment with HTML:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;Edit this code and see the result.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            structure: `
+                <h2 class="text-2xl font-bold mb-4">HTML Document Structure</h2>
+                <p class="mb-4">Every HTML document has a required structure that includes the following declarations and elements:</p>
+                
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>&lt;!DOCTYPE html&gt;</strong> - Declares the document type and HTML version</li>
+                    <li><strong>&lt;html&gt;</strong> - The root element that contains all other HTML elements</li>
+                    <li><strong>&lt;head&gt;</strong> - Contains meta information about the document</li>
+                    <li><strong>&lt;title&gt;</strong> - Specifies a title for the document (required in the head section)</li>
+                    <li><strong>&lt;body&gt;</strong> - Contains the visible page content</li>
+                </ul>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Basic Document Structure:</h4>
+                    <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Your content goes here --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">HTML Head Section</h3>
+                <p class="mb-4">The &lt;head&gt; section contains meta information, links to CSS and JavaScript files, and other important elements:</p>
+                
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>&lt;meta&gt;</strong> - Metadata about the document</li>
+                    <li><strong>&lt;link&gt;</strong> - Link to external resources like CSS</li>
+                    <li><strong>&lt;script&gt;</strong> - For JavaScript</li>
+                    <li><strong>&lt;style&gt;</strong> - For internal CSS</li>
+                </ul>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Document&lt;/title&gt;
+    &lt;style&gt;
+      body { font-family: Arial, sans-serif; }
+      h1 { color: blue; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;This is a heading&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            elements: `
+                <h2 class="text-2xl font-bold mb-4">HTML Elements</h2>
+                <p class="mb-4">HTML elements are defined by a start tag, some content, and an end tag. The HTML element is everything from the start tag to the end tag.</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Syntax:</h4>
+                    <code>&lt;tagname&gt;Content goes here...&lt;/tagname&gt;</code>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Common HTML Elements</h3>
+                
+                <table class="w-full border-collapse my-4">
+                    <thead>
+                        <tr class="bg-gray-200 dark:bg-gray-700">
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Element</th>
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;h1&gt; to &lt;h6&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Headings from level 1 (largest) to level 6 (smallest)</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;p&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Paragraph</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;br&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Line break (empty element without end tag)</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;hr&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Horizontal rule (empty element without end tag)</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;div&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Division or section</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;span&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Inline container for text</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Nesting HTML Elements</h3>
+                <p class="mb-4">HTML elements can be nested (elements can contain elements). All HTML documents consist of nested HTML elements.</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Example:</h4>
+                    <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto"><code>&lt;div&gt;
+  &lt;h1&gt;This is a heading&lt;/h1&gt;
+  &lt;p&gt;This is a paragraph with &lt;span style="color:red"&gt;red text&lt;/span&gt; inside it.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Elements Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Main Heading&lt;/h1&gt;
+    &lt;h2&gt;Subheading&lt;/h2&gt;
+    &lt;p&gt;This is a paragraph with &lt;span style="color:blue"&gt;blue text&lt;/span&gt;.&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Another paragraph after a horizontal rule.&lt;br&gt;With a line break.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            attributes: `
+                <h2 class="text-2xl font-bold mb-4">HTML Attributes</h2>
+                <p class="mb-4">HTML attributes provide additional information about HTML elements. Attributes are always specified in the start tag and usually come in name/value pairs like: name="value".</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Syntax:</h4>
+                    <code>&lt;tagname attribute="value"&gt;Content&lt;/tagname&gt;</code>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Common HTML Attributes</h3>
+                
+                <table class="w-full border-collapse my-4">
+                    <thead>
+                        <tr class="bg-gray-200 dark:bg-gray-700">
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Attribute</th>
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Description</th>
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">id</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies a unique ID for an element</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;div id="header"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">class</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies one or more class names for an element</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;p class="important"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">style</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies an inline CSS style for an element</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;p style="color:blue"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">src</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies the URL of an external resource</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;img src="image.jpg"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">href</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies the URL of a linked resource</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;a href="https://example.com"&gt;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Attributes Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="main-title" style="color:purple;"&gt;This heading has attributes&lt;/h1&gt;
+    &lt;p class="important-text" style="font-size:18px;"&gt;This paragraph has multiple attributes.&lt;/p&gt;
+    &lt;a href="https://www.example.com" target="_blank"&gt;This is a link with href and target attributes&lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            formatting: `
+                <h2 class="text-2xl font-bold mb-4">Text Formatting</h2>
+                <p class="mb-4">HTML provides several elements for formatting text. These elements are designed to display special types of text:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2">Formatting Elements:</h4>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong>&lt;b&gt;</strong> - Bold text</li>
+                            <li><strong>&lt;strong&gt;</strong> - Important text (semantically strong)</li>
+                            <li><strong>&lt;i&gt;</strong> - Italic text</li>
+                            <li><strong>&lt;em&gt;</strong> - Emphasized text (semantically emphasized)</li>
+                            <li><strong>&lt;mark&gt;</strong> - Marked/highlighted text</li>
+                            <li><strong>&lt;small&gt;</strong> - Smaller text</li>
+                            <li><strong>&lt;del&gt;</strong> - Deleted text</li>
+                            <li><strong>&lt;ins&gt;</strong> - Inserted text</li>
+                            <li><strong>&lt;sub&gt;</strong> - Subscript text</li>
+                            <li><strong>&lt;sup&gt;</strong> - Superscript text</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2">Examples:</h4>
+                        <p><b>This is bold text</b></p>
+                        <p><strong>This is strong text</strong></p>
+                        <p><i>This is italic text</i></p>
+                        <p><em>This is emphasized text</em></p>
+                        <p>This is <mark>highlighted</mark> text</p>
+                        <p>This is <small>smaller</small> text</p>
+                        <p>This is <del>deleted</del> text</p>
+                        <p>This is <ins>inserted</ins> text</p>
+                        <p>This is <sub>subscript</sub> text</p>
+                        <p>This is <sup>superscript</sup> text</p>
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Text Formatting&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Text Formatting Examples&lt;/h1&gt;
+    &lt;p&gt;This is &lt;b&gt;bold text&lt;/b&gt; and this is &lt;i&gt;italic text&lt;/i&gt;.&lt;/p&gt;
+    &lt;p&gt;This is &lt;strong&gt;strongly important&lt;/strong&gt; and this is &lt;em&gt;emphasized&lt;/em&gt;.&lt;/p&gt;
+    &lt;p&gt;You can &lt;mark&gt;highlight&lt;/mark&gt; important information.&lt;/p&gt;
+    &lt;p&gt;Water formula: H&lt;sub&gt;2&lt;/sub&gt;O and 10&lt;sup&gt;2&lt;/sup&gt; = 100&lt;/p&gt;
+    &lt;p&gt;&lt;del&gt;This text is deleted&lt;/del&gt; and &lt;ins&gt;this text is inserted&lt;/ins&gt;.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            links: `
+                <h2 class="text-2xl font-bold mb-4">HTML Links</h2>
+                <p class="mb-4">Links are an essential part of HTML, allowing users to navigate between different pages or resources. HTML links are defined with the &lt;a&gt; tag.</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Syntax:</h4>
+                    <code>&lt;a href="url"&gt;link text&lt;/a&gt;</code>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Link Attributes</h3>
+                
+                <table class="w-full border-collapse my-4">
+                    <thead>
+                        <tr class="bg-gray-200 dark:bg-gray-700">
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Attribute</th>
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">href</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies the URL of the page the link goes to</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">target</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies where to open the linked document (_blank, _self, _parent, _top)</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">rel</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies the relationship between the current and linked document</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Types of Links</h3>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">External Links:</h4>
+                    <code>&lt;a href="https://www.example.com"&gt;Visit Example.com&lt;/a&gt;</code>
+                </div>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Email Links:</h4>
+                    <code>&lt;a href="mailto:example@example.com"&gt;Send Email&lt;/a&gt;</code>
+                </div>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Phone Links:</h4>
+                    <code>&lt;a href="tel:+1234567890"&gt;Call Us&lt;/a&gt;</code>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Links&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;HTML Links Example&lt;/h1&gt;
+    &lt;p&gt;Visit &lt;a href="https://www.example.com" target="_blank"&gt;Example.com&lt;/a&gt; (opens in new tab)&lt;/p&gt;
+    &lt;p&gt;&lt;a href="mailto:contact@example.com"&gt;Send us an email&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="tel:+1234567890"&gt;Call us at +123-456-7890&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="#" id="dummyLink" style="color:red; text-decoration:none;"&gt;This is a styled link&lt;/a&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            images: `
+                <h2 class="text-2xl font-bold mb-4">HTML Images</h2>
+                <p class="mb-4">Images are an important part of any webpage. HTML provides the &lt;img&gt; tag to embed images in web pages.</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Syntax:</h4>
+                    <code>&lt;img src="url" alt="description"&gt;</code>
+                    <p class="mt-2">Note: The &lt;img&gt; tag is an empty tag, which means it doesn't need a closing tag.</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Image Attributes</h3>
+                
+                <table class="w-full border-collapse my-4">
+                    <thead>
+                        <tr class="bg-gray-200 dark:bg-gray-700">
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Attribute</th>
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">src</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Required. Specifies the path to the image</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">alt</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Required. Provides alternative text if the image cannot be displayed</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">width</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies the width of the image in pixels or percentage</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">height</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Specifies the height of the image in pixels or percentage</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Image as a Link</h3>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Example:</h4>
+                    <code>&lt;a href="https://example.com"&gt;
+  &lt;img src="https://picsum.photos/100" alt="Random Image" style="width:100px"&gt;
+&lt;/a&gt;</code>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Images&lt;/title&gt;
+    &lt;style&gt;
+      img { border: 1px solid #ddd; border-radius: 4px; padding: 5px; }
+      img:hover { box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5); }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;HTML Images Example&lt;/h1&gt;
+    
+    &lt;h3&gt;Basic Image:&lt;/h3&gt;
+    &lt;img src="https://picsum.photos/200/100" alt="Random Image"&gt;
+    
+    &lt;h3&gt;Image with Width and Height:&lt;/h3&gt;
+    &lt;img src="https://picsum.photos/300/150" alt="Sized Random Image" width="200" height="100"&gt;
+    
+    &lt;h3&gt;Image as a Link:&lt;/h3&gt;
+    &lt;a href="https://example.com"&gt;
+      &lt;img src="https://picsum.photos/100" alt="Linked Random Image" style="width:100px"&gt;
+    &lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            lists: `
+                <h2 class="text-2xl font-bold mb-4">HTML Lists</h2>
+                <p class="mb-4">HTML provides three types of lists:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2">Unordered Lists (&lt;ul&gt;)</h4>
+                        <p class="mb-2">Creates a bulleted list:</p>
+                        <ul class="list-disc pl-6">
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2">Ordered Lists (&lt;ol&gt;)</h4>
+                        <p class="mb-2">Creates a numbered list:</p>
+                        <ol class="list-decimal pl-6">
+                            <li>First item</li>
+                            <li>Second item</li>
+                            <li>Third item</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2">Description Lists (&lt;dl&gt;)</h4>
+                        <p class="mb-2">Creates a list of terms and descriptions:</p>
+                        <dl>
+                            <dt class="font-medium">HTML</dt>
+                            <dd class="pl-4 mb-2">HyperText Markup Language</dd>
+                            <dt class="font-medium">CSS</dt>
+                            <dd class="pl-4">Cascading Style Sheets</dd>
+                        </dl>
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Nested Lists</h3>
+                <p class="mb-4">Lists can be nested inside one another:</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Example:</h4>
+                    <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto"><code>&lt;ul&gt;
+  &lt;li&gt;Coffee&lt;/li&gt;
+  &lt;li&gt;Tea
+    &lt;ul&gt;
+      &lt;li&gt;Black tea&lt;/li&gt;
+      &lt;li&gt;Green tea&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Milk&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Lists&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;HTML Lists Example&lt;/h1&gt;
+    
+    &lt;h2&gt;Unordered List:&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Coffee&lt;/li&gt;
+      &lt;li&gt;Tea&lt;/li&gt;
+      &lt;li&gt;Milk&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h2&gt;Ordered List:&lt;/h2&gt;
+    &lt;ol&gt;
+      &lt;li&gt;First step&lt;/li&gt;
+      &lt;li&gt;Second step&lt;/li&gt;
+      &lt;li&gt;Third step&lt;/li&gt;
+    &lt;/ol&gt;
+    
+    &lt;h2&gt;Description List:&lt;/h2&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;HTML&lt;/dt&gt;
+      &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+      &lt;dt&gt;CSS&lt;/dt&gt;
+      &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+    &lt;/dl&gt;
+    
+    &lt;h2&gt;Nested List:&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Fruits:
+        &lt;ul&gt;
+          &lt;li&gt;Apples&lt;/li&gt;
+          &lt;li&gt;Bananas&lt;/li&gt;
+          &lt;li&gt;Oranges&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Vegetables:
+        &lt;ul&gt;
+          &lt;li&gt;Carrots&lt;/li&gt;
+          &lt;li&gt;Broccoli&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            tables: `
+                <h2 class="text-2xl font-bold mb-4">HTML Tables</h2>
+                <p class="mb-4">HTML tables allow web developers to arrange data into rows and columns. Tables are created using the &lt;table&gt; tag, along with related tags for rows, cells, headers, and other elements.</p>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Basic Table Structure</h3>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">HTML Code:</h4>
+                    <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto"><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Company&lt;/th&gt;
+    &lt;th&gt;Contact&lt;/th&gt;
+    &lt;th&gt;Country&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Alfreds Futterkiste&lt;/td&gt;
+    &lt;td&gt;Maria Anders&lt;/td&gt;
+    &lt;td&gt;Germany&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Centro comercial Moctezuma&lt;/td&gt;
+    &lt;td&gt;Francisco Chang&lt;/td&gt;
+    &lt;td&gt;Mexico&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Table Elements</h3>
+                
+                <table class="w-full border-collapse my-4">
+                    <thead>
+                        <tr class="bg-gray-200 dark:bg-gray-700">
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Element</th>
+                            <th class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;table&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Defines a table</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;tr&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Defines a table row</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;th&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Defines a header cell</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;td&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Defines a standard cell</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">&lt;caption&gt;</td>
+                            <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">Defines a table caption</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Tables&lt;/title&gt;
+    &lt;style&gt;
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;HTML Tables Example&lt;/h1&gt;
+    
+    &lt;table&gt;
+      &lt;caption&gt;Customer Information&lt;/caption&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Company&lt;/th&gt;
+        &lt;th&gt;Contact&lt;/th&gt;
+        &lt;th&gt;Country&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Alfreds Futterkiste&lt;/td&gt;
+        &lt;td&gt;Maria Anders&lt;/td&gt;
+        &lt;td&gt;Germany&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Centro comercial Moctezuma&lt;/td&gt;
+        &lt;td&gt;Francisco Chang&lt;/td&gt;
+        &lt;td&gt;Mexico&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Ernst Handel&lt;/td&gt;
+        &lt;td&gt;Roland Mendel&lt;/td&gt;
+        &lt;td&gt;Austria&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Island Trading&lt;/td&gt;
+        &lt;td&gt;Helen Bennett&lt;/td&gt;
+        &lt;td&gt;UK&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `,
+            forms: `
+                <h2 class="text-2xl font-bold mb-4">HTML Forms</h2>
+                <p class="mb-4">HTML forms are used to collect user input. The &lt;form&gt; element defines a form that contains form elements like input fields, checkboxes, radio buttons, submit buttons, etc.</p>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Form Structure</h3>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md my-6">
+                    <h4 class="font-semibold mb-2">Basic Form Structure:</h4>
+                    <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto"><code>&lt;form action="/submit-form" method="post"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+  
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Input Types</h3>
+                <p class="mb-4">The &lt;input&gt; element is the most used form element. It can be displayed in several ways, depending on the type attribute:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2">Text Input Types:</h4>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><code>type="text"</code> - Single-line text input</li>
+                            <li><code>type="password"</code> - Password field</li>
+                            <li><code>type="email"</code> - Email input with validation</li>
+                            <li><code>type="tel"</code> - Telephone number input</li>
+                            <li><code>type="url"</code> - URL input with validation</li>
+                            <li><code>type="number"</code> - Numeric input</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2">Other Input Types:</h4>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><code>type="checkbox"</code> - Checkbox for selecting options</li>
+                            <li><code>type="radio"</code> - Radio button for selecting one option</li>
+                            <li><code>type="file"</code> - File upload control</li>
+                            <li><code>type="date"</code> - Date selector</li>
+                            <li><code>type="color"</code> - Color picker</li>
+                            <li><code>type="range"</code> - Slider control</li>
+                            <li><code>type="submit"</code> - Submit button</li>
+                            <li><code>type="reset"</code> - Reset button</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3">Try It Yourself</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="code-editor" class="block font-medium mb-2">HTML Code:</label>
+                        <textarea id="code-editor" class="w-full h-60 p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-mono rounded-md border border-gray-300 dark:border-gray-600 text-base focus:outline-none focus:ring-2 focus:ring-primary">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Forms&lt;/title&gt;
+    &lt;style&gt;
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"], input[type="email"], input[type="password"], 
+      select, textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #5D5CDE;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #4b4bb0;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;HTML Forms Example&lt;/h1&gt;
+    
+    &lt;form action="#" method="get"&gt;
+      &lt;div class="form-group"&gt;
+        &lt;label for="name"&gt;Name:&lt;/label&gt;
+        &lt;input type="text" id="name" name="name" placeholder="Enter your name" required&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="form-group"&gt;
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" placeholder="Enter your email" required&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="form-group"&gt;
+        &lt;label for="password"&gt;Password:&lt;/label&gt;
+        &lt;input type="password" id="password" name="password" placeholder="Enter your password" required&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="form-group"&gt;
+        &lt;label&gt;Gender:&lt;/label&gt;
+        &lt;input type="radio" id="male" name="gender" value="male"&gt;
+        &lt;label for="male"&gt;Male&lt;/label&gt;
+        &lt;input type="radio" id="female" name="gender" value="female"&gt;
+        &lt;label for="female"&gt;Female&lt;/label&gt;
+        &lt;input type="radio" id="other" name="gender" value="other"&gt;
+        &lt;label for="other"&gt;Other&lt;/label&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="form-group"&gt;
+        &lt;label for="country"&gt;Country:&lt;/label&gt;
+        &lt;select id="country" name="country"&gt;
+          &lt;option value=""&gt;Select your country&lt;/option&gt;
+          &lt;option value="usa"&gt;USA&lt;/option&gt;
+          &lt;option value="uk"&gt;UK&lt;/option&gt;
+          &lt;option value="canada"&gt;Canada&lt;/option&gt;
+          &lt;option value="australia"&gt;Australia&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="form-group"&gt;
+        &lt;label for="message"&gt;Message:&lt;/label&gt;
+        &lt;textarea id="message" name="message" rows="4" placeholder="Enter your message"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="form-group"&gt;
+        &lt;input type="checkbox" id="subscribe" name="subscribe" value="yes"&gt;
+        &lt;label for="subscribe"&gt;Subscribe to newsletter&lt;/label&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="form-group"&gt;
+        &lt;input type="submit" value="Submit"&gt;
+        &lt;input type="reset" value="Reset"&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                        <button id="run-code" class="mt-2 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Run Code</button>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Result:</label>
+                        <div id="code-output" class="w-full h-60 p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md overflow-auto"></div>
+                    </div>
+                </div>
+            `
+        };
+
+        // Function to run code from editor
+        document.getElementById('run-code').addEventListener('click', function() {
+            const codeEditor = document.getElementById('code-editor');
+            const codeOutput = document.getElementById('code-output');
+            codeOutput.innerHTML = codeEditor.value;
+        });
+
+        // Initialize with introduction lesson selected
+        document.querySelector('[data-lesson="intro"]').classList.add('bg-primary', 'text-white');
+
+        // Lesson navigation
+        document.querySelectorAll('.lesson-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lessonId = this.getAttribute('data-lesson');
+                
+                // Update active button styling
+                document.querySelectorAll('.lesson-btn').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white', 'font-semibold');
+                });
+                this.classList.add('bg-primary', 'text-white', 'font-semibold');
+                
+                // Load lesson content
+                const content = document.getElementById('lesson-content');
+                content.innerHTML = lessonContent[lessonId];
+                
+                // Re-initialize the code runner for the new lesson content
+                if (document.getElementById('run-code')) {
+                    document.getElementById('run-code').addEventListener('click', function() {
+                        const codeEditor = document.getElementById('code-editor');
+                        const codeOutput = document.getElementById('code-output');
+                        codeOutput.innerHTML = codeEditor.value;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
